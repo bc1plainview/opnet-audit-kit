@@ -1,0 +1,55 @@
+# OPNet Audit Kit
+
+A comprehensive security audit toolkit for OPNet smart contracts and dApps. Contains documentation, checklists, guidelines, and example contracts for performing thorough audits of OPNet AssemblyScript smart contracts on Bitcoin L1.
+
+## Contents
+
+### Audit Cheatsheet
+
+`AUDIT-CHEATSHEET.md` — Quick-reference checklist covering critical, high, and medium checks for OPNet contracts:
+
+- **Critical**: `super.onDeployment()`, `Address.fromString()` params, SHA256 selectors, `increaseAllowance()` vs `approve()`
+- **High**: CEI pattern, SafeMath, bounded loops, ReentrancyGuard, access control
+- **Medium**: Calldata validation, `Blockchain.call()` return checks, pointer uniqueness, event emission
+- **OPNet-Specific**: No CREATE/CREATE2, CSV timelocks, constructor behavior, `Blockchain.nextPointer`
+
+### Guidelines
+
+Audit and development guidelines for different aspects of OPNet:
+
+| File | Description |
+|------|-------------|
+| `guidelines/audit-guidelines.md` | Full security audit methodology and checklist |
+| `guidelines/contracts-guidelines.md` | Smart contract development best practices |
+| `guidelines/frontend-guidelines.md` | Frontend/dApp integration guidelines |
+| `guidelines/backend-guidelines.md` | Backend/API development guidelines |
+| `guidelines/plugin-guidelines.md` | OPNet node plugin development guidelines |
+| `guidelines/unit-testing-guidelines.md` | Smart contract testing patterns |
+| `guidelines/setup-guidelines.md` | Project setup and dependency versions |
+| `guidelines/generic-questions-guidelines.md` | Common OPNet questions and answers |
+
+### Documentation
+
+The `docs/` directory contains a mirror of the core OPNet documentation covering:
+
+- Smart contract runtime (`btc-runtime`) API references
+- Core SDK (`@opnet`) provider, contract, and UTXO APIs
+- OIP standards (OIP-0001 through OIP-0721)
+- Storage system, events, pointers, and serialization
+- Quantum resistance and ML-DSA support
+- Transaction building and broadcasting
+
+### Example Contracts
+
+The `examples/` directory contains reference contracts for auditing:
+
+- `examples/good/` — Well-written contracts that follow all OPNet best practices
+- `examples/test-patterns/` — Contracts with known issues for testing audit tools
+
+## Usage
+
+This kit is designed to be used as a reference during manual or AI-assisted security audits of OPNet smart contracts. Start with the `AUDIT-CHEATSHEET.md` for a quick overview, then refer to the full `guidelines/audit-guidelines.md` for detailed methodology.
+
+## License
+
+MIT
